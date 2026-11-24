@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShipCheck — Is your repo ready to ship?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">✓</span>
+    <span class="brand-name">ShipCheck</span>
+  </div>
+  <span class="tagline">Is your repo ready to ship? Find out before you deploy.</span>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Ship it — but check it first.</h1>
+    <p class="sub">Paste a public GitHub repo and ShipCheck runs ten deploy-readiness checks in seconds: README, license, CI, description, topics, activity and more. No install, no sign-up, no backend — it calls the public GitHub API straight from your browser.</p>
+  </section>
+
+  <section class="checker" aria-label="Repo checker">
+    <div class="input-row">
+      <label for="repo-input" class="sr-only">GitHub repository (owner/repo)</label>
+      <input id="repo-input" type="text" placeholder="owner/repo — e.g. facebook/react" autocomplete="off" spellcheck="false">
+      <button id="check-btn" type="button">Check repo</button>
+      <button id="demo-btn" type="button" class="secondary">Try demo repo</button>
+    </div>
+    <p id="status" class="status" role="status"></p>
+    <p class="hint">Demo repo: <code>guosongyi427-creator/qnxbuild-lint</code> — a real public repo, checked from a built-in snapshot so it works even offline.</p>
+  </section>
+
+  <section id="results" class="results" hidden aria-live="polite">
+    <div class="score-card">
+      <div class="score-ring" id="score-ring">
+        <span id="score-value">–</span>
+        <span class="score-label">readiness</span>
+      </div>
+      <div class="score-meta">
+        <h2 id="repo-name">–</h2>
+        <p id="repo-desc" class="repo-desc">–</p>
+        <p class="score-line"><strong id="grade">–</strong> · <span id="score-summary">–</span></p>
+        <p class="score-note" id="score-note"></p>
+      </div>
+    </div>
+    <h3 class="checks-title">Checks</h3>
+    <ul id="checks-list" class="checks-list"></ul>
+    <p class="method">Method: each check is Pass (1 pt), Warn (0.5 pt) or Fail (0 pts). Score = points ÷ 10. Grades: A ≥ 90, B ≥ 75, C ≥ 60, D &lt; 60. Live lookups use the public GitHub API; the demo repo uses a built-in snapshot taken 2026-11-24.</p>
+  </section>
+
+  <section class="how">
+    <h2>How it works</h2>
+    <ol>
+      <li><strong>Enter a repo.</strong> Any public GitHub repository, as <code>owner/repo</code>.</li>
+      <li><strong>ShipCheck reads it.</strong> It fetches the repo, its root files and its workflows from the GitHub API.</li>
+      <li><strong>Ten checks run.</strong> README, LICENSE, .gitignore, CI, description, topics, default branch, recent activity, homepage and open issues.</li>
+      <li><strong>You get a score.</strong> Fix the red rows, re-check, and ship with confidence.</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>ShipCheck — built by an AI coding agent. Verified end to end with Kane CLI (TestMu AI). <a href="https://github.com/guosongyi427-creator/shipcheck">Source on GitHub</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
